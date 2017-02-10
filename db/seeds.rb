@@ -8,6 +8,8 @@
 
 require 'json'
 require 'open-uri'
+
+
 url ="http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 user_serialized = open(url).read
 user = JSON.parse(user_serialized)
@@ -18,4 +20,22 @@ user["drinks"].each do |use|
 end
 
 
+Cocktail.destroy_all
+
+url = '/assets/cocktail2.jpg'
+cocktail = Cocktail.new(name: 'Mojito')
+cocktail.image = url
+cocktail.save
+
+
+
+url = '/assets/cocktail3.jpg'
+cocktail = Cocktail.new(name: 'Old Fashion')
+cocktail.image = url
+cocktail.save
+
+url = '/assets/cocktail4.jpg'
+cocktail = Cocktail.new(name: 'Caipirinha')
+cocktail.image = url
+cocktail.save
 

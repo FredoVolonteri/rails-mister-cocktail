@@ -1,30 +1,36 @@
 
 <div class="banner-new" style="background-image: url('/assets/cocktail.jpg');">
   <div class="banner-content">
-    <h1 class="text-center">Check out these amazing Handmade Cocktails</h1>
+    <h1 class="text-center">Want to party ?</h1>
+      <h2>Let's have a cocktail</h2>
+        <div class="new">
+          <%= link_to "Add your favorite cocktail", new_cocktail_path, {:class => "btn btn-primary"}%>
+        </div>
 
 
-    <%= link_to "Add a new cocktail", new_cocktail_path, {:class => "btn btn-primary"}%>
 
   </div>
 </div>
 
 
-<div class="container">
+
+<div class="container padded">
 
   <div class="row">
    <% @cocktails.each do |cocktail|%>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <div class="card">
-        <ul>
-          <li>
-            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-          </li>
-      </ul>
-      </div>
+        <div class="card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                 url('<%= cl_image_path cocktail.image, height: 100, width: 150, crop: :fill %>')">
+
+          <div class="card-description">
+          <h2> <%= cocktail.name %></h2>
+          </div>
+            <%= link_to "", cocktail_path(cocktail), :class=> "card-link" %>
+        </div>
     </div>
-    <% end  %>
+    <% end %>
 
   </div>
 </div>
