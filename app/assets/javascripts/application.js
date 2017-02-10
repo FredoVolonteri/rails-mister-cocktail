@@ -15,3 +15,11 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+  $(".prez").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".container").offset().top},
+        'slow');
+  });
+
